@@ -80,7 +80,7 @@ Imagine a robot navigating a hallway with several people. The robot knows its de
 
 The lecture introduces several approaches:
 
--   **Boltzmann Rationality**: Approxinmating human decision with a likelihood distribution
+-   **Boltzmann Rationality**: Approximating human decision with a likelihood distribution
 -   **Bayesian Theory of Mind**: Reasoning about beliefs of others with Bayesian updates
 -   **Markov Decision Process (MDP)**: Modeling sequential decision-making based on the current state, actions, transitions, and rewards.(agent always knows the exact, true state)
 -   **Partially Observable Markov Decision Processes (POMDP)**: Modeling decision-making under uncertainty by maintaining and updating a belief state from observations.(agent doesn’t know the current state)
@@ -535,14 +535,25 @@ The method still has clear limits. Language models are weak at some spatial, phy
 ### LESS is More: Rethinking Probabilistic Models of Human Behavior
 
 -   The experiments show that LESS sometimes performs worse than Boltzmann. Then, does that indicate that we shouldn't consider trajectory similarity when choosing an action? In the real world, when should we treat similar choices as distinct options?
+
+The reason why we should consider trajectory similarity is that sometimes different but similar trajectories do not necessarily change the probability of selecting a fundamentally different choice. However, in the real world, this becomes complicated due to the interactions, influences, or states those trajectories will have. For example, a small trajectory difference is irrelevant during ordinary lane keeping but critical near a pedestrian or another vehicle.
 -   The authors used predefined feature vectors for computing trajectory similarity. Does this limit the performance of LESS? If so, how can we learn those features or extract them automatically?
 
+Yes, it can limit the performance of LESS because its ability to model human behavior depends on the definition. We can learn trajectory features using representation learning or human labeling. But this always comes with an additional cost.
 ### LLMs as Zero-Shot Human Models for Human-Robot Interaction
 
 -   Since LLMs are only used to predict human behavior, does it matter that these models perform poorly on spatial and numerical reasoning?
+
+Yes, if models fail on spatial and numerical reasoning. It may fail to understand the physical environment and understand the behavior of the human. If the LLM incorrectly interprets these quantities, it may mistakenly predict human behavior.
 -   The authors observed that LLM performance is sensitive to prompt design. Would this limitation make LLMs ineffective as human models?
+
+In human-robot interaction, a human model helps a robot anticipate human behavior so it can choose appropriate actions. An inaccurate prompt design may impede the process of robot to predict human. 
 -   The authors used very simple tasks to test LLMs as human models. But, in the real world, would LLMs be sufficient to approximate humans?
+
+The authors show a promising result of LLMs as human models on simple tasks. However, it still needs lots of effort for LLMs to be sufficient to approximate humans considering the complexity of the real world due to uncertainty, dynamic environments and so on...
 -   When interacting with humans, some people will do the exact opposite of what's expected, ex: intervene for a whisk but not a knife, seemingly just to be contrarian. How can an LLM or Robot account for this?
+
+It is always tricky when some people will do things in a way that is unexpected or in an untraditional way. I believe this can be solved with further learning and fine-tuning. However, you can never wake someone who is pretending to be asleep. 
 
 [//]: # ()
 [//]: # (### Report Status)
