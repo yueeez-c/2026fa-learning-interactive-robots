@@ -76,14 +76,17 @@ Imagine a robot navigating a hallway with several people. The robot knows its de
 -   **Predict behavior**: Anticipate the person's future actions.
 -   **Plan interactions**: Choose safe and effective actions based on those predictions.
 
-### How do we model human behavior?
+### How do we infer decision-making and human behavior?
 
-The lecture introduces several approaches:
+The lecture introduces:
 
--   **Boltzmann Rationality**: Approximating human decision with a likelihood distribution
--   **Bayesian Theory of Mind**: Reasoning about beliefs of others with Bayesian updates
+1. General Decision-Making Frameworks:
 -   **Markov Decision Process (MDP)**: Modeling sequential decision-making based on the current state, actions, transitions, and rewards.(agent always knows the exact, true state)
 -   **Partially Observable Markov Decision Processes (POMDP)**: Modeling decision-making under uncertainty by maintaining and updating a belief state from observations.(agent doesn’t know the current state)
+
+2. Human Behavior Modeling:
+-   **Boltzmann Rationality**: Approximating human decision with a likelihood distribution
+-   **Bayesian Theory of Mind**: Reasoning about beliefs of others with Bayesian updates
 
 ---
 
